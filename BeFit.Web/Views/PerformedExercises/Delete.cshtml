@@ -1,0 +1,22 @@
+@model BeFit.Web.Models.DoneExercise
+@{
+    ViewData["Title"] = "Delete exercise";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<h3>Are you sure you want to delete this exercise?</h3>
+
+<div>
+    <p>Exercise: @Model.ExerciseType?.Name</p>
+    <p>Session: @Model.TrainingSession?.StartAt.ToString("dd.MM.yyyy HH:mm")</p>
+    <p>Weight: @Model.Weight kg</p>
+    <p>Sets: @Model.Sets</p>
+    <p>Repetitions: @Model.Repetitions</p>
+
+    <form asp-action="Delete" method="post">
+        <input type="hidden" asp-for="Id" />
+        <button type="submit">Delete</button>
+        <a asp-action="Index">Cancel</a>
+    </form>
+</div>

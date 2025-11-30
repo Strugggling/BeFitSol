@@ -1,0 +1,43 @@
+@model BeFit.Web.Models.Training
+@{
+    ViewData["Title"] = "New training session";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        <p>Please fix the following errors:</p>
+        <ul>
+            @foreach (var modelState in ViewData.ModelState.Values)
+            {
+                foreach (var error in modelState.Errors)
+                {
+                    <li>@error.ErrorMessage</li>
+                }
+            }
+        </ul>
+    </div>
+}
+
+<form asp-action="Create" method="post">
+    <div class="form-group mb-3">
+        <label asp-for="StartAt">Start date and time</label>
+        <input asp-for="StartAt" type="datetime-local" required />
+        <span asp-validation-for="StartAt" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="EndAt">End date and time</label>
+        <input asp-for="EndAt" type="datetime-local" required />
+        <span asp-validation-for="EndAt" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Create session</button>
+    <a asp-action="Index">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

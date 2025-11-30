@@ -1,0 +1,27 @@
+@model IEnumerable<dynamic>
+<h1>Statistics (last 4 weeks)</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Exercise</th>
+            <th>Times performed</th>
+            <th>Total repetitions</th>
+            <th>Average weight (kg)</th>
+            <th>Max weight (kg)</th>
+        </tr>
+    </thead>
+    <tbody>
+    @foreach (var r in Model)
+    {
+        <tr>
+            <td>@r.ExerciseName</td>
+            <td>@r.TimesPerformed</td>
+            <td>@r.TotalRepetitions</td>
+            <td>@(r.AverageWeight == null ? "-" : String.Format("{0:0.##}", r.AverageWeight))</td>
+            <td>@(r.MaxWeight == null ? "-" : String.Format("{0:0.##}", r.MaxWeight))</td>
+        </tr>
+    }
+    </tbody>
+</table>
+

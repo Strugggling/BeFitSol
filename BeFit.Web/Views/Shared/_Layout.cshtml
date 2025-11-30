@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - BeFit</title>
+</head>
+<body>
+    <header>
+        <div>
+            <a asp-area="" asp-controller="Home" asp-action="Index">Home</a> |
+            <a asp-area="Identity" asp-page="/Account/Login">Login</a>
+        </div>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+
+
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

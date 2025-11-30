@@ -1,0 +1,16 @@
+@model BeFit.Web.Models.Training
+@{
+    ViewData["Title"] = "Delete training session";
+}
+
+<h1>@ViewData["Title"]</h1>
+<p>Are you sure you want to delete this training session?</p>
+
+<p>Start: @Model.StartAt.ToString("dd.MM.yyyy HH:mm")</p>
+<p>End: @Model.EndAt.ToString("dd.MM.yyyy HH:mm")</p>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit">Delete</button>
+    <a asp-action="Index">Cancel</a>
+ </form>

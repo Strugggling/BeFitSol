@@ -1,0 +1,18 @@
+@page
+@model LoginModel
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<h2>@ViewData["Title"]</h2>
+<form method="post">
+    <label asp-for="Input.Email"></label>
+    <input asp-for="Input.Email" autocomplete="username" />
+    <br />
+    <label asp-for="Input.Password"></label>
+    <input asp-for="Input.Password" type="password" autocomplete="current-password" />
+    <br />
+    <button type="submit">Log in</button>
+</form>
+
+<partial name="_ValidationScriptsPartial" />

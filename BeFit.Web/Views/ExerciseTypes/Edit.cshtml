@@ -1,0 +1,17 @@
+@model BeFit.Web.Models.ExerciseTyp
+@{
+    ViewData["Title"] = "Edit exercise type";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <label asp-for="Name"></label>
+    <input asp-for="Name" />
+    <button type="submit">Save changes</button>
+    <a asp-action="Index">Cancel</a>
+</form>
+
+<partial name="_ValidationScriptsPartial" />

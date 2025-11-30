@@ -1,0 +1,18 @@
+@model IEnumerable<BeFit.Web.Models.ExerciseTyp>
+<h1>Exercise types</h1>
+<p><a asp-action="Create">Create new</a></p>
+@if (Model.Any())
+{
+    <ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Name (id:@item.Id) - <a asp-action="Details" asp-route-id="@item.Id">view</a></li>
+    }
+    </ul>
+}
+else
+{
+    <p>No exercise types.</p>
+}
+
+<p><a asp-controller="Home" asp-action="Index">Back</a></p>

@@ -1,0 +1,46 @@
+@model IEnumerable<BeFit.Web.Models.DoneExercise>
+@{
+    ViewData["Title"] = "My Exercises";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+
+@if (Model.Any())
+{
+    <table class="table table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th>Exercise</th>
+                <th>Session</th>
+                <th>Weight (kg)</th>
+                <th>Sets</th>
+                <th>Repetitions</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.ExerciseType?.Name</td>
+                    <td>@item.TrainingSession?.StartAt.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>@item.Weight</td>
+                    <td>@item.Sets</td>
+                    <td>@item.Repetitions</td>
+                    <td>
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <div class="alert alert-info">
+        You have no exercises yet. <a asp-action="Create">Add exercise now</a>
+    </div>
+}
+

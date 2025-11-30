@@ -1,0 +1,24 @@
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.2.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BeFit.Web", "BeFit.Web\BeFit.Web.csproj", "{35E255AC-15E0-05C1-26BE-860052CBEEBB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{35E255AC-15E0-05C1-26BE-860052CBEEBB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35E255AC-15E0-05C1-26BE-860052CBEEBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35E255AC-15E0-05C1-26BE-860052CBEEBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35E255AC-15E0-05C1-26BE-860052CBEEBB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EE1B6A53-D31B-4D59-82B7-B1915C49F7EE}
+	EndGlobalSection
+EndGlobal

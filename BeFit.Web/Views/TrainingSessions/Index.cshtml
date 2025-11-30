@@ -1,0 +1,39 @@
+@model IEnumerable<BeFit.Web.Models.Training>
+<h1>Training sessions</h1>
+
+
+
+@if (Model.Any())
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Start</th>
+                <th>End</th>
+                <th>Duration</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                var duration = item.EndAt - item.StartAt;
+                <tr>
+                    <td>@item.StartAt.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>@item.EndAt.ToString("dd.MM.yyyy HH:mm")</td>
+                    <td>@duration.Hours h @duration.Minutes min</td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No training sessions yet. <a asp-action="Create">Create one now</a></p>
+}
+
+

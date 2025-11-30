@@ -1,0 +1,29 @@
+@model BeFit.Web.Models.Training
+@{
+    ViewData["Title"] = "Edit training session";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Id" />
+
+    <div class="form-group mb-3">
+        <label asp-for="StartAt"></label>
+        <input asp-for="StartAt" type="datetime-local" />
+        <span asp-validation-for="StartAt" class="text-danger"></span>
+    </div>
+
+    <div class="form-group mb-3">
+        <label asp-for="EndAt"></label>
+        <input asp-for="EndAt" type="datetime-local" />
+        <span asp-validation-for="EndAt" class="text-danger"></span>
+    </div>
+
+    <button type="submit">Save changes</button>
+    <a asp-action="Index">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

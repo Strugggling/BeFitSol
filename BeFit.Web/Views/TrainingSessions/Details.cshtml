@@ -1,0 +1,46 @@
+@model BeFit.Web.Models.Training
+<h1>Training session details</h1>
+
+<p>Start: @Model.StartAt.ToString("dd.MM.yyyy HH:mm")</p>
+<p>End: @Model.EndAt.ToString("dd.MM.yyyy HH:mm")</p>
+@{
+    var duration = Model.EndAt - Model.StartAt;
+}
+<p>Duration: @duration.Hours h @duration.Minutes min</p>
+
+<p>
+    <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a>
+    <a asp-action="Delete" asp-route-id="@Model.Id">Delete</a>
+    <a asp-action="Index">Back to list</a>
+</p>
+
+<h3>Exercises in this session</h3>
+
+@if (Model.PerformedExercises?.Any() == true)
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Exercise</th>
+                <th>Weight (kg)</th>
+                <th>Sets</th>
+                <th>Repetitions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var exercise in Model.PerformedExercises)
+            {
+                <tr>
+                    <td>@exercise.ExerciseType?.Name</td>
+                    <td>@exercise.Weight</td>
+                    <td>@exercise.Sets</td>
+                    <td>@exercise.Repetitions</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No exercises in this session.</p>
+}

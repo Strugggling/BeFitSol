@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "BeFit - Dashboard";
+}
+
+<div>
+    <h1>Welcome to BeFit</h1>
+    <p>Simple weight training tracker</p>
+
+    @if (User.Identity!.IsAuthenticated)
+    {
+        <p>Hello, <strong>@User.Identity.Name</strong>!</p>
+    }
+    else
+    {
+        <p>Please log in to start tracking workouts.</p>
+    }
+</div>
+
+@if (User.Identity!.IsAuthenticated)
+{
+    <div>
+        <div>
+            <h3>Training sessions</h3>
+            <p>Manage your training sessions</p>
+            <a asp-controller="TrainingSessions" asp-action="Index">Go</a>
+        </div>
+
+        <div>
+            <h3>My exercises</h3>
+            <p>Add and edit performed exercises</p>
+            <a asp-controller="PerformedExercises" asp-action="Index">Go</a>
+        </div>
+
+        <div>
+            <h3>Statistics</h3>
+            <p>View progress and stats</p>
+            <a asp-controller="Statistics" asp-action="Index">Go</a>
+        </div>
+
+        <div>
+            <h3>Exercise types</h3>
+            <p>Browse available exercise types</p>
+            <a asp-controller="ExerciseTypes" asp-action="Index">Go</a>
+        </div>
+    </div>
+}
+else
+{
+    <div>
+        <h4>To use the app you must log in</h4>
+        <p><a href="~/Identity/Account/Login">Log in</a></p>
+    </div>
+}
+
